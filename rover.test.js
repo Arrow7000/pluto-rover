@@ -66,3 +66,20 @@ test("multiple commands work in series", () => {
   expect(rover2.x).toBe(4);
   expect(rover2.y).toBe(2);
 });
+
+test("wrapped planet", () => {
+  // strictly speaking this behaviour is toroidal, not spherical 😜
+  const rover1 = new Rover();
+
+  rover1.exec("B");
+  expect(rover1.dir).toBe(N);
+  expect(rover1.x).toBe(0);
+  expect(rover1.y).toBe(width - 1);
+
+  const rover2 = new Rover();
+
+  rover2.exec("BBLFFF");
+  expect(rover2.dir).toBe(W);
+  expect(rover2.x).toBe(width - 3);
+  expect(rover2.y).toBe(height - 2);
+});
