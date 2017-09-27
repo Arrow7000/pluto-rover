@@ -1,4 +1,4 @@
-const { N, S, W, E, F, B, L, R } = require("./constants");
+const { N } = require("./constants");
 const getNewState = require("./movement");
 
 class Rover {

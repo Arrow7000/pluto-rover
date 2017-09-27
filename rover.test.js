@@ -1,3 +1,5 @@
+/* global test, expect */
+
 const Rover = require("./rover");
 const { width, height, N, S, W, E, F, B, L, R } = require("./constants");
 
