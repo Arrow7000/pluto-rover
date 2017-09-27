@@ -35,26 +35,34 @@ test("single commands work", () => {
   expect(rover2.dir).toBe(E);
   expect(rover2.x).toBe(1);
   expect(rover2.y).toBe(0);
-  rover2.exec(L);
-  expect(rover2.dir).toBe(N);
+  rover2.exec(R);
+  expect(rover2.dir).toBe(S);
   rover2.exec(B);
-  expect(rover2.dir).toBe(N);
+  expect(rover2.dir).toBe(S);
   expect(rover2.x).toBe(1);
   expect(rover2.y).toBe(1);
+  rover2.exec(B);
+  expect(rover2.dir).toBe(S);
+  expect(rover2.x).toBe(1);
+  expect(rover2.y).toBe(2);
+  rover2.exec(B);
+  expect(rover2.dir).toBe(S);
+  expect(rover2.x).toBe(1);
+  expect(rover2.y).toBe(3);
 });
 
 test("multiple commands work in series", () => {
   const rover1 = new Rover();
 
-  rover1.exec("RFFRFFFL");
-  expect(rover1.dir).toBe(E);
+  rover1.exec("RFFLFFFL");
+  expect(rover1.dir).toBe(W);
   expect(rover1.x).toBe(2);
   expect(rover1.y).toBe(3);
 
   const rover2 = new Rover();
 
-  rover2.exec("RRFFLBBBB");
-  expect(rover2.dir).toBe(N);
-  expect(rover2.x).toBe(2);
-  expect(rover2.y).toBe(4);
+  rover2.exec("RRBBLFFFF");
+  expect(rover2.dir).toBe(E);
+  expect(rover2.x).toBe(4);
+  expect(rover2.y).toBe(2);
 });

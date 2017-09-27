@@ -34,8 +34,8 @@ function rotate(currDir, command) {
   }
 
   const currDirNum = dirToNum[currDir];
-  const newDirNum = currDirNum + command === L ? -1 : 1;
-  const newDirNumBounded = newDirNum < 0 ? 0 : newDirNum % 4;
+  const newDirNum = currDirNum + (command === L ? -1 : 1);
+  const newDirNumBounded = newDirNum < 0 ? 3 : newDirNum % 4;
   return numToDir[newDirNumBounded];
 }
 
@@ -48,14 +48,26 @@ function move(x, y, dir, command) {
 
   switch (dir) {
     case N:
+      return {
+        x,
+        y: y + val
+      };
     case S:
-      const newY = dir === S ? y + val : -val;
-      return { x, y: newY };
+      return {
+        x,
+        y: y - val
+      };
 
     case E:
+      return {
+        x: x + val,
+        y
+      };
     case W:
-      const newX = dir === E ? y + val : -val;
-      return { x: newX, y };
+      return {
+        x: x - val,
+        y
+      };
   }
 }
 
