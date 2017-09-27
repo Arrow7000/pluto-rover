@@ -27,10 +27,11 @@ function rotate(currDir, command) {
   // to manipulate directions numerically
   const dirToNum = { N: 0, E: 1, S: 2, W: 3 };
   const numToDir = [N, E, S, W];
+  const dirsLen = numToDir.length;
 
   const currDirNum = dirToNum[currDir];
   const newDirNum = currDirNum + (command === L ? -1 : 1);
-  const newDirNumBounded = newDirNum < 0 ? 3 : newDirNum % 4;
+  const newDirNumBounded = newDirNum < 0 ? dirsLen - 1 : newDirNum % dirsLen;
   return numToDir[newDirNumBounded];
 }
 
