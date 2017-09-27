@@ -1,10 +1,10 @@
 const { N } = require("./constants");
 
 class Rover {
-  constructor() {
-    this.x = 0;
-    this.y = 0;
-    this.dir = N;
+  constructor(x = 0, y = 0, dir = N) {
+    this.x = x;
+    this.y = y;
+    this.dir = dir;
   }
 }
 
